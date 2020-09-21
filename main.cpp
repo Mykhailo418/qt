@@ -23,6 +23,7 @@ int signalsSlots(int argc, char* argv[]);
 int threads(int argc, char* argv[]);
 int threadPool();
 void concurrencyFunc();
+void containers();
 
 int main(int argc, char *argv[])
 {
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
     typeInformation();
     properties();
     invokable();
-    concurrencyFunc();
+    //concurrencyFunc();
     containers();
     qDebug() << "---- END QOBJECT";
     return a.exec(); // run Qt cycle
@@ -164,7 +165,7 @@ int threadPool()
 void concurrencyFunc()
 {
     qDebug() << "-- QtConcurrent: ";
-    auto future = QtConcurrent::run(loopFunction, 4); // run function in separate thread
+    auto future = QtConcurrent::run(loopFunction, 4); // run function in separate thread but it will stop current thread until QtConcurrent will finished
     qDebug() << "future.result()" << future.result();
     loopFunction(6);
 }

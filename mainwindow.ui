@@ -18,40 +18,21 @@
 QPushButton :hover:enabled{color: rgb(ff, 85, 0) }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>82</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QPushButton" name="Save">
-       <property name="text">
-        <string>Save</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QListView" name="listView">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>256</width>
-      <height>192</height>
+      <x>9</x>
+      <y>38</y>
+      <width>782</width>
+      <height>88</height>
      </rect>
     </property>
    </widget>
    <widget class="QRadioButton" name="radioButton">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>80</y>
+      <x>9</x>
+      <y>530</y>
       <width>84</width>
       <height>19</height>
      </rect>
@@ -63,24 +44,111 @@ QPushButton :hover:enabled{color: rgb(ff, 85, 0) }</string>
    <widget class="QListView" name="listView_2">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>130</y>
-      <width>256</width>
-      <height>192</height>
+      <x>9</x>
+      <y>227</y>
+      <width>782</width>
+      <height>88</height>
      </rect>
     </property>
    </widget>
    <widget class="QProgressBar" name="progressBar">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>60</y>
-      <width>118</width>
-      <height>23</height>
+      <x>9</x>
+      <y>503</y>
+      <width>87</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="value">
      <number>24</number>
+    </property>
+   </widget>
+   <widget class="QUndoView" name="undoView">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>132</y>
+      <width>782</width>
+      <height>89</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>412</y>
+      <width>108</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QRadioButton" name="radioButton_2">
+       <property name="text">
+        <string>RadioButton</string>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_3">
+       <property name="text">
+        <string>RadioButton</string>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>321</y>
+      <width>108</width>
+      <height>85</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GroupBox</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QRadioButton" name="radioButton_4">
+       <property name="text">
+        <string>RadioButton</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_5">
+       <property name="text">
+        <string>RadioButton</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="Save">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save</string>
     </property>
    </widget>
   </widget>
@@ -92,6 +160,9 @@ QPushButton :hover:enabled{color: rgb(ff, 85, 0) }</string>
      <width>800</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
