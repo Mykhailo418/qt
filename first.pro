@@ -11,11 +11,18 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    mywidget.cpp
+    mywidget.cpp \
+    printer.cpp \
+    receiver.cpp \
+    sender.cpp
 
 HEADERS += \
+    MyFunctor.h \
     mainwindow.h \
-    mywidget.h
+    mywidget.h \
+    printer.h \
+    receiver.h \
+    sender.h
 
 FORMS += \
     mainwindow.ui \
