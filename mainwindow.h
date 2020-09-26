@@ -16,6 +16,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void setLabelTextFromButton();
+    void setupFileSystem();
+    void onPushButtonCLicked();
 
 private:
     Ui::MainWindow *ui;

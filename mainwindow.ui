@@ -138,6 +138,16 @@ QPushButton :hover:enabled{color: rgb(ff, 85, 0) }</string>
      </item>
     </layout>
    </widget>
+   <widget class="QTreeView" name="treeView">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>330</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
    <widget class="QPushButton" name="Save">
     <property name="geometry">
      <rect>

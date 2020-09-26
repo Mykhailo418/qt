@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QPushButton>
 #include "counter.h"
+#include <QFileSystemModel>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     setStyleSheet("QPushButton { color: blue}"
                   "QLabel {color: blue}"
                   "QRadioButton {color: blue}");
+    setupFileSystem();
 
     // --- Setup Custom Ui ---
 //    resize(600, 400);
@@ -60,3 +62,21 @@ void MainWindow::setLabelTextFromButton()
     mLabel->setText(button->text());
 }
 
+void MainWindow::setupFileSystem()
+{
+    auto fileSystemModel = new QFileSystemModel(this);
+    fileSystemModel->setRootPath(QDir::rootPath());
+    fileSystemModel->setReadOnly(false);
+
+    ui->listView->setModel(fileSystemModel);
+    ui->listView->setRootIndex(fileSystemModel->index(QDir::homePath()));
+
+    //ui->tableView->setModel(fileSystemModel);
+    //ui->tableView->setRootIndex(fileSystemModel->index(QDir::homePath()));
+}
+
+void MainWindow::onPushButtonCLicked()
+{
+    //auto text = mDisplsyWithTooltipModel->index(1, 0, QModelIndex()).data().toString();
+    //mDisplsyWithTooltipModel->addDisplayWithTooltip({text: "Dog"});
+}
