@@ -1,40 +1,48 @@
 #include "mainwindow.h"
 
+#include <QObject>
 #include <QApplication>
 #include <QPushButton>
 #include <QFont>
 #include <QProgressBar>
 
-QPushButton* createPushButton();
-QProgressBar* createProgressbar();
+QPushButton* createPushButton(QWidget* parent);
+QProgressBar* createProgressbar(QWidget* parent);
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
+    w.setFixedSize(600, 300);
 
-    QPushButton* btn = createPushButton();
-    QProgressBar* proggressBar = createProgressbar();
-    btn->show();
-    proggressBar->show();
+    QPushButton* btn = createPushButton(&w);
+    QProgressBar* proggressBar = createProgressbar(&w);
+
+    btn->move(0, 50);
+    proggressBar->setGeometry(150, 130, 150, 40); // set coordinates , width and height
+
+    QObject::connect(btn, &QPushButton::clicked, &w, &MainWindow::onPushBtn);
+
+    w.show();
+//    btn->show();
+//    proggressBar->show();
 
     return a.exec();
 }
 
-QPushButton* createPushButton()
+QPushButton* createPushButton(QWidget* parent)
 {
-    QPushButton* btn = new QPushButton("QPushButton Button");
+    QPushButton* btn = new QPushButton("QPushButton Button", parent); // set parent to show in parent(window)
     btn->setText("new caption");
     btn->setToolTip("tooltip");
-    QFont MyFont("Arial", QFont::Bold, true);
+    QFont MyFont("Arial", 12, QFont::Bold, true);
     btn->setFont(MyFont);
     return btn;
 }
 
-QProgressBar* createProgressbar()
+QProgressBar* createProgressbar(QWidget* parent)
 {
-    QProgressBar* progressbar = new QProgressBar();
+    QProgressBar* progressbar = new QProgressBar(parent);
     progressbar->setValue(50);
     return progressbar;
 }
