@@ -17,6 +17,7 @@ public:
 
 public slots:
     void onPushBtn();
+    void onAskPassword();
 
 private:
     Ui::MainWindow *ui;
