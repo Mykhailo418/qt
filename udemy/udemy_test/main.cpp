@@ -10,7 +10,7 @@
 
 QPushButton* createPushButton(QWidget* parent);
 QProgressBar* createProgressbar(QWidget* parent);
-void createLabelWithFontDialog(QLabel* label, QWidget* parent);
+void setLabelWithFontDialog(QWidget* parent);
 
 int main(int argc, char *argv[])
 {
@@ -21,16 +21,23 @@ int main(int argc, char *argv[])
     QPushButton* btn = createPushButton(&w);
     QProgressBar* proggressBar = createProgressbar(&w);
     QPushButton* btnPassword = new QPushButton("Set Password", &w);
+    QPushButton* btnSetFont = new QPushButton("Set Font", &w);
+    QPushButton* btnSetColor = new QPushButton("Set Color", &w);
+
     QLabel* someLabel = new QLabel("some label",  &w);
-    createLabelWithFontDialog(someLabel, &w);
+    w.someLabel = someLabel;
 
     btn->move(0, 50);
     btnPassword->move(0, 0);
+    btnSetFont->move(400, 0);
+    btnSetColor->move(0, 25);
     someLabel->move(200, 0);
     proggressBar->setGeometry(150, 130, 150, 40); // set coordinates , width and height
 
     QObject::connect(btn, &QPushButton::clicked, &w, &MainWindow::onPushBtn);
     QObject::connect(btnPassword, &QPushButton::clicked, &w, &MainWindow::onAskPassword);
+    QObject::connect(btnSetFont, &QPushButton::clicked, &w, &MainWindow::setLabelWithFontDialog);
+    QObject::connect(btnSetColor, &QPushButton::clicked, &w, &MainWindow::setLabelColor);
 
     w.show();
 //    btn->show();
@@ -54,15 +61,4 @@ QProgressBar* createProgressbar(QWidget* parent)
     QProgressBar* progressbar = new QProgressBar(parent);
     progressbar->setValue(50);
     return progressbar;
-}
-
-
-
-void createLabelWithFontDialog(QLabel* label, QWidget* parent)
-{
-    bool ok;
-    QFont font = QFontDialog::getFont(&ok, label->font(), parent); // setting font for 'label'
-    if (ok) {
-        label->setFont(font);
-    }
 }

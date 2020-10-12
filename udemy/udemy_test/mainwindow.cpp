@@ -3,6 +3,10 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QFontDialog>
+#include <QColor>
+#include <QColorDialog>
+#include <QPalette>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,4 +39,21 @@ void MainWindow::onAskPassword()
     } else {
         QMessageBox::critical(this, "Information", "Password is NOT setted");
     }
+}
+
+void MainWindow::setLabelWithFontDialog()
+{
+    bool ok;
+    QFont font = QFontDialog::getFont(&ok, someLabel->font()); // setting font for 'label'
+    if (ok) {
+        someLabel->setFont(font);
+    }
+}
+
+void MainWindow::setLabelColor()
+{
+    QColor color = QColorDialog::getColor(Qt::black, this);
+    QPalette palette;
+    palette.setColor(QPalette::WindowText, color);
+    someLabel->setPalette(palette);
 }

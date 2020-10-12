@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,9 +16,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    QLabel* someLabel;
+
 public slots:
     void onPushBtn();
     void onAskPassword();
+    void setLabelWithFontDialog();
+    void setLabelColor();
 
 private:
     Ui::MainWindow *ui;
